@@ -11,7 +11,7 @@ public abstract class AbstractBrowser implements IBrowserPassword
 	
 	public AbstractBrowser()
 	{
-		version = "1";
+		this.version = "1";
 		this.name = "Unknown Browser";
 		this.version = "Chromium";
 		this.filePath = "browser/password/EmptyPasswordStorage";
