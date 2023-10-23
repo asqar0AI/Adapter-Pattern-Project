@@ -3,7 +3,6 @@ package browser;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 public class Chrome extends AbstractBrowser
 {

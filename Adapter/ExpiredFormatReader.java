@@ -3,6 +3,10 @@ import browser.*;
 
 import java.io.IOException;
 
+
+/**
+ * Adapter class for change password file format
+ */
 public class ExpiredFormatReader implements IFormatPassword
 {
 	private final InternetExplorer internetExplorer;
@@ -10,15 +14,19 @@ public class ExpiredFormatReader implements IFormatPassword
 	{
 		this.internetExplorer = internetExplorer;
 	}
+	
+	/**
+	 * Converts old data format into modern one
+	 * @return Auth data converted to modern format
+	 */
 	@Override
 	public String getPassword() throws IOException
 	{
 		String[] temp =  internetExplorer.getPasswords().split("\n");
-		int len = temp.length;
 		StringBuilder result = new StringBuilder("Website,Username,Password\n");
-		for (int i = 0; i < len; i ++)
+		for (String s : temp)
 		{
-			String[] split = temp[i].split(",");
+			String[] split = s.split(",");
 			result.append(split[2]).append(",");
 			result.append(split[0]).append(",");
 			result.append(split[1]).append("\n");
